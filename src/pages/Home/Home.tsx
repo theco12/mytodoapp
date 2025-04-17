@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Title,
@@ -20,6 +20,19 @@ interface Todo {
 const Home: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState("");
+
+  // ✅ localStorage에서 todos 가져오기
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  // ✅ todos가 바뀔 때마다 localStorage에 저장
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = () => {
     if (newTodo.trim() === "") return;
