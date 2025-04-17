@@ -59,7 +59,7 @@ const Home: React.FC = () => {
           placeholder="할 일을 입력하세요"
           value={newTodo}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTodo(e.target.value)}
-          onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === "Enter" && addTodo()}
+          onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => e.key === "Enter" && addTodo()}
         />
         <AddButton onClick={addTodo}>추가</AddButton>
       </InputWrapper>
