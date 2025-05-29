@@ -78,3 +78,11 @@ export const RemoveButton = styled.button`
     color: #c53030;
   }
 `;
+
+export const DateSelector = styled.input`
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+`;
